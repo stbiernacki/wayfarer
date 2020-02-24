@@ -1,0 +1,82 @@
+@startmindmap
+skinparam backgroundColor #EEEBDC
+
+title Views Structure
+
+* <font color=red size=20><b>views
+** <font color=blue>admin
+*** <font color=royalblue>inc
+****_ <font color=green>admin-content
+****_ <font color=green>admin-footer
+****_ <font color=green>left-admin-sidebar
+****_ <font color=green>left-side-of-main-admin-nav
+****_ <font color=green>main-admin-nav
+****_ <font color=green>right-admin-sidebar
+****_ <font color=green>right-side-of-main-admin-nav
+*** <font color=royalblue>menu
+****_ <font color=green>admin-menu
+****_ <font color=green>menu
+****_ <font color=green>menu-sub-top
+****_ <font color=green>menu-top
+*** <font color=royalblue>pages
+**** <font color=green>apiUsers
+***** <font color=green>components
+******_ <font color=>x-access-to-api-component
+******_ <font color=>x-create-api-token-component
+******_ <font color=>x-list-of-api-users-component
+******_ <font color=>x-tabs-component
+*****_ <font color=>index
+*****_ <font color=>token-confirmation
+**** <font color=green>dataExports
+*****_ <font color=>index
+**** <font color=green>home
+***** <font color=green>components
+****** <font color=>inc
+*******_ <font color=>card-tools
+******_ <font color=>x-general-component
+******_ <font color=>x-get-spanning-days-component
+******_ <font color=>x-get-this-year-component
+*****_ <font color=>index
+**** <font color=green>sales
+*****_ <font color=>index
+**** <font color=green>settings
+***** <font color=green>components
+******_ <font color=>general-component
+******_ <font color=>select-language-component
+*****_ <font color=>index
+**** <font color=green>shared
+***** <font color=green>actionButtons
+******_ <font color=>destroy
+**** <font color=green>stockStatus
+*****_ <font color=>index
+***_ <font color=royalblue>admin
+***_ <font color=royalblue>master
+
+left side
+
+** <font color=blue>auth
+*** <font color=royalblue>passwords
+****_ <font color=green>confirm
+****_ <font color=green>email
+****_ <font color=green>reset
+***_ <font color=green>auth
+***_ <font color=green>login
+***_ <font color=green>register
+***_ <font color=green>verify
+** <font color=blue>layouts
+***_ <font color=green>app
+** <font color=gray>vendor
+*** <font color=gray>swaggervel
+** <font color=blue>websites
+*** <font color=royalblue>inc
+****_ <font color=green>left-side-of-main-nav
+****_ <font color=green>main-nav
+****_ <font color=green>right-side-of-main-nav
+*** <font color=blue>pages
+****_ <font color=green>about
+****_ <font color=green>contact
+****_ <font color=green>page
+****_ <font color=green>welcome
+***_ <font color=green>website
+
+@endmindmap

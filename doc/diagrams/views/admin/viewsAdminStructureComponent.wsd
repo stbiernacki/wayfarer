@@ -1,0 +1,71 @@
+@startuml
+skinparam backgroundColor #EEEBDC
+skinparam linetype ortho
+
+title Administration Structure
+
+frame "layouts" {
+   [<font color=red>app] as app
+}
+
+frame "admin" as adminAdmin {
+
+    [<font color=red>master] as master
+
+    [<font color=red>admin] as admin
+
+    frame "inc" as adminAdminInc #moccasin {
+        [admin-content] as adminContent
+        [admin-footer] as adminFooter
+        [left-admin-sidebar] as leftAdminSidebar
+        [left-side-of-main-admin-nav] as leftSideOfMainAdminNav
+        [main-admin-nav] as mainAdminNav
+        [right-admin-sidebar] as rightAdminSidebar
+        [right-side-of-main-admin-nav] as rightSideOfMainAdminNav
+    }
+
+    frame "menu" as adminAdminMenu #bisque {
+        [<font color=blue>admin-menu] as adminMenu
+        [<font color=green>menu] as menu
+        [<font color=green>menu-sub-top] as menuSubTop
+        [<font color=green>menu-top] as menuTop
+    }
+
+    frame "pages" #papayawhip{
+        frame "home" {
+            [<font color=red>index] as homeIndex
+            admin <|-[#red]up- homeIndex
+        }
+    }
+
+     note left of pages
+        every folder contains
+        the index.blade.php file
+        which extends "admin.blade.php"
+        (eg.home/index.blade.php)
+     end note
+}
+
+app <|-[#red]- master
+
+master <|-[#red]- admin
+
+admin o-[#black]- adminContent
+admin o-[#black]- adminFooter
+admin o-[#black]- leftAdminSidebar
+admin o-[#black]- mainAdminNav
+    mainAdminNav o-[#black]down- leftSideOfMainAdminNav
+    mainAdminNav o-[#black]down- rightSideOfMainAdminNav
+admin o-[#black]- rightAdminSidebar
+
+leftAdminSidebar o-[#green]up- menu
+leftSideOfMainAdminNav o-[#green]- menuTop
+
+menu o-[#green]- menu
+menuTop o-[#green]- menuSubTop
+
+usecase  ServiceProvider as "<font color=blue>Service Provider"
+ServiceProvider <-[#blue]- adminMenu
+ServiceProvider -[#blue]-> adminAdmin
+
+@enduml

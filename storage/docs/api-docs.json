@@ -1,0 +1,160 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "API for Wayfarer",
+        "description": "This is API documentation for Wayfarer System",
+        "contact": {
+            "email": "stbiernacki@live.com"
+        },
+        "version": "1.0.0"
+    },
+    "host": "127.0.0.1:8000/api",
+    "basePath": "/",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/stockStatuses": {
+            "get": {
+                "tags": [
+                    "Stock Status"
+                ],
+                "summary": "Allows to retrieve stock status",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Not authorized"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Stock Status"
+                ],
+                "summary": "Allows to store stock status",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "list of stock objects",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/stockStatuses"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "401": {
+                        "description": "Not authorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": []
+                    }
+                ]
+            }
+        },
+        "/stockStatuses/batch": {
+            "post": {
+                "tags": [
+                    "Stock Status"
+                ],
+                "summary": "Allows to store stock status",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "list of stock objects",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/stockStatuses"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Operation"
+                    },
+                    "401": {
+                        "description": "Not authorized"
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity"
+                    }
+                },
+                "security": [
+                    {
+                        "access_token": []
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "stockStatuses": {
+            "required": [
+                "external_id",
+                "code"
+            ],
+            "properties": {
+                "external_id": {
+                    "description": "The unique external identifier of the stock status in the external catalog.",
+                    "type": "integer",
+                    "format": "intGrZ"
+                },
+                "code": {
+                    "description": "Code (unique)",
+                    "type": "string",
+                    "format": "string",
+                    "example": "EXT-001"
+                },
+                "name": {
+                    "description": "Name",
+                    "type": "string",
+                    "format": "string",
+                    "example": "lorem ipsum"
+                },
+                "description": {
+                    "description": "Description",
+                    "type": "string",
+                    "format": "string",
+                    "example": "lorem ipsum"
+                },
+                "quantity": {
+                    "description": "Quantity",
+                    "type": "number",
+                    "format": "decimal(10.4)"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "securityDefinitions": {
+        "access_token": {
+            "type": "apiKey",
+            "name": "access_token",
+            "in": "query"
+        }
+    },
+    "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
+    }
+}

@@ -1,0 +1,24 @@
+@startmindmap
+skinparam backgroundColor #EEEBDC
+
+title AdminSystem Library
+
+* <font color=red>AdminSystem
+** <font color=royalblue>Generator
+*** <font color=green>Common
+****_ <font color=>ActivityAnalyzer
+*** <font color=green>Contracts
+****_ <font color=>Filter
+*** <font color=green>Filters
+****_ <font color=>ActiveFilter
+****_ <font color=>ClassesFilter
+****_ <font color=>HrefFilter
+****_ <font color=>SubmenuFilter
+***_ <font color=green>Generator
+** <font color=royalblue>View Composers
+***_ <font color=green>ManagerComposer
+**_ <font color=royalblue>Manager
+
+
+
+@endmindmap

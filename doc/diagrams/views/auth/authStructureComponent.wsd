@@ -1,0 +1,34 @@
+@startuml
+skinparam backgroundColor #EEEBDC
+skinparam linetype ortho
+
+title <b>Auth Structure Component
+
+frame "admin" {
+    [master] as adminMaster
+}
+
+frame "auth" #moccasin {
+
+    package "passwords" #lightsalmon {
+
+            [confirm]
+            [email]
+            [reset]
+
+    }
+    [auth] as authAuth
+    [login]
+    [register]
+    [verify]
+}
+authAuth <|-[#black]up- confirm
+authAuth <|-[#black]up- email
+authAuth <|-[#black]up- reset
+authAuth <|-[#black]- login
+authAuth <|-[#black]- register
+authAuth <|-[#black]- verify
+
+authAuth -up-|> adminMaster
+
+@enduml

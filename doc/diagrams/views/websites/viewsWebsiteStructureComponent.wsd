@@ -1,0 +1,39 @@
+@startuml
+
+skinparam backgroundColor #EEEBDC
+skinparam linetype ortho
+scale 1000 width
+title Website Structure
+
+frame "layouts" {
+    [<font color=red>app] as app
+}
+frame "websites"  {
+    [<font color=red>website] as website
+
+    frame "pages" #strategy {
+        [about]
+        [contact]
+        [welcome]
+        [page]
+    }
+about --|> website
+contact --|> website
+page --|> website
+welcome --|> website
+
+    frame "inc" #moccasin {
+        [main-nav] as mainNav
+        [left-side-0f-main-nav] as leftSideOfMainNav
+        [right-side-0f-main-nav] as rightSideOfMainNav
+    }
+}
+app <|-[#red]- website
+
+mainNav -[#black]up-o website
+leftSideOfMainNav -[#black]up-o mainNav
+rightSideOfMainNav -[#black]up-o mainNav
+
+
+
+@enduml

@@ -1,0 +1,142 @@
+@startuml
+
+skinparam backgroundColor #EEEBDC
+skinparam linetype ortho
+skinparam packageStyle rectangle
+
+title Class Diagram Of AdminSystem
+
+package "Laravel Service Container" {
+    class AdminSystemServiceProvider
+    {
+        + register()
+
+        + boot()
+
+        - filters(): array
+    }
+}
+
+package "AdminSystem" as adminSystem {
+    class ManagerComposer
+    {
+       - $manager;
+
+        + __construct(Manager $manager)
+
+        + compose(View $view)
+
+        + create(View $view)
+    }
+
+    class Manager
+    {
+        # $menu;
+        # $filters;
+        # $data;
+
+        + __construct($data = [], $filters = []
+
+        + getMenu()
+
+        # resolvedFilters()
+    }
+
+    class Generator
+    {
+        + $generatedMenu = [];
+        - $filters;
+
+        + __construct(array $filters = [])
+
+        + pushMenu()
+        + convertEntries($entries)
+    }
+
+    interface Filter
+    {
+        + convert($entry, Generator $generator);
+    }
+
+    class SubmenuFilter
+    {
+        - $activityAnalyzer;
+
+        + __construct(ActivityAnalyzer $activityAnalyzer)
+
+        + convert($entry, Generator $generator)
+        # generateSubmenuClasses($entry)
+    }
+
+    class HrefFilter
+    {
+        # $urlGenerator;
+
+        + __construct(UrlGenerator $urlGenerator)
+        + convert($entry, Generator $generator)
+        # generateHref($entry)
+    }
+
+    class ClassesFilter
+    {
+        + convert($entry, Generator $generator)
+
+        # generateClasses($entry, $topNav = false)
+    }
+
+    class ActiveFilter
+    {
+        - $activityAnalyzer;
+
+        + __construct(ActivityAnalyzer $activityAnalyzer)
+
+        + convert($entry, Generator $generator)
+    }
+
+    class ActivityAnalyzer
+    {
+        - $request;
+        - $url;
+
+        + __construct(Request $request, UrlGenerator $url)
+        + isActive($entry)
+        # matchPattern($pattern)
+        # hasActive($entries)
+        - isExplicitActive($active)
+    }
+
+}
+
+package views.admin.menu {
+    note right of views.admin.menu
+        admin-menu.blade.php
+    end note
+}
+
+package views.admin {
+    note right of views.admin
+        admin.blade.php
+    end note
+}
+
+AdminSystemServiceProvider::register *-down- Manager
+AdminSystemServiceProvider::boot *-- ManagerComposer
+
+ManagerComposer::create --* views.admin
+Manager::__construct *-up- views.admin.menu
+ManagerComposer::__construct *-- Manager
+
+Manager::getMenu *-- Generator
+Generator::__construct *-- Filter
+
+Filter <|.left. HrefFilter
+Filter <|.. SubmenuFilter
+Filter <|.. ActiveFilter
+Filter <|.right. ClassesFilter
+
+ActivityAnalyzer -down-* ActiveFilter::__construct
+ActivityAnalyzer -down-* SubmenuFilter::__construct
+
+@enduml
+
+

@@ -1,0 +1,30 @@
+<?php
+
+return [
+    'confirm_password_message'      => 'Kennwortmeldung bestätigen',
+    'full_name'                     => 'Vollständiger Name',
+    'email'                         => 'E-Mail',
+    'password'                      => 'Passwort',
+    'retype_password'               => 'Passwort bestätigen',
+    'remember_me'                   => 'Angemeldet bleiben',
+    'register'                      => 'Registrieren',
+    'register_a_new_membership'     => 'Ein neues Konto registrieren',
+    'i_forgot_my_password'          => 'Ich habe mein Passwort vergessen',
+    'i_already_have_a_membership'   => 'Ich bin bereits registriert',
+    'sign_in'                       => 'Anmelden',
+    'log_out'                       => 'Abmelden',
+    'toggle_navigation'             => 'Toggle navigation',
+    'login_message'                 => 'Bitte melden Sie sich an, um auf den geschützten Bereich zuzugreifen',
+    'register_message'              => 'Bitte füllen Sie das Formular aus, um ein neues Konto zu registrieren',
+    'password_reset_message'        => 'Bitte geben Sie Ihre E-Mail Adresse ein, um Ihr Passwort zurückzusetzen',
+    'reset_password'                => 'Passwort zurücksetzen',
+    'send_password_reset_link'      => 'Link zur Passwortwiederherstellung senden',
+    'verify_message'                => 'Ihr Konto muss verifiziert werden',
+    'verify_email_sent'             => 'Ein neuer Bestätigungslink wurde an Ihre E-Mail-Adresse gesendet.',
+    'verify_check_your_email'       => 'Bevor Sie fortfahren, überprüfen Sie bitte Ihre E-Mail-Adresse auf einen Bestätigungslink.',
+    'verify_if_not_received'        => 'Wenn Sie die E-Mail nicht erhalten haben',
+    'verify_request_another'        => 'Klicken Sie hier, um ein anderes anzufordern',
+
+    'failed'                        => 'Diese Anmeldeinformationen stimmen nicht mit unseren Aufzeichnungen überein.',
+    'throttle'                      => 'Zu viele Anmeldeversuche. Bitte versuchen Sie es in: Sekunden Sekunden erneut.',
+];
