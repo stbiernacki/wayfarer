@@ -13,8 +13,5 @@ AdminSystem
 
 > Note: `API Documentation` is generated using the command `php artisan generate:doc`
 
-#### Wayfarer Api Documentation (#example)
-![](../../../images/repository/adminSystem/wayfarerApiDocumentationExample.png)
-
 ***
-[Table Of Content](../../../tableOfContents.md)
+[Wayfarer](../../../../README.md)
