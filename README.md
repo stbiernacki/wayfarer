@@ -28,7 +28,7 @@ Wayfarer
 
 For each development stage of the application, you can automatically generate  
 the current content of the entire or selected fragment of API Documentation([see example](doc/markdown/repository/sami/wayfarerApiDocumentationExample.md)).  
-- Run `php artisan generate:doc` and follow the instructions.
+- Run `php artisan generate:doc` and follow the instructions
 
 
 ## Testing 
@@ -43,7 +43,8 @@ To test smoothly , follow these steps:
 
 ## Description
 
-####The app contains the following examples:
+#### The app contains the following examples:
+
 ***
 >**Library** - menu generator for administration panel.  
 >  Located: `app/Repository/AdminSystem`
@@ -52,18 +53,18 @@ The basic class of library is `Manager.php`
 an instance of this class accepts two parameters: the `menu` and `filters`:   
 - `menu` parameter is located in `resources/views/admin/menu/admin-menu.php`.  
   `menu` can be located anywhere else (e.g. in the configuration file),  
-  in this case for reasons of consistency it is placed in views because it is associated with this layer. 
+  in this case for reasons of consistency it is placed in views because it is associated with this layer 
 -  `filters` is the second parameter that properly filter such parameters as: url, css classes, active link, etc.
 
 The generator must be registered in the central application configuration location,  
 see: [app/Providers/AdminSystemServiceProvider](app/Providers/AdminSystemServiceProvider.php)  
 
-Library structure and dependency between classes see [here](doc/markdown/repository/adminSystem/adminSystem.md)  
+Library structure and dependency between classes (see [here](doc/markdown/repository/adminSystem/adminSystem.md))  
 ***
 >**Api** (Swagger - along with token generation)  
 >Located: `app/Http/Api`
 
-Using the API service requires authorization, for this you should first generate the token see [here](doc/markdown/userManual/userManual.md)  
+Using the API service requires authorization, for this you should first generate the token (see [here](doc/markdown/userManual/userManual.md))  
  
 [Swagger](https://swagger.io/docs/specification/about/) is a set of open-source tools built around the OpenAPI Specification that:  
 design, build, document and consume REST APIs.
@@ -85,7 +86,7 @@ It is very easy to add any number of pages in the administrative panel,
 also you can easily create a main menu, sub-menu (sub-sub-meny, e.t.c)  
 in the top, right and left bar (see [here](doc/markdown/views/admin/admin.md)).
 ***
->Adding any *language* without interfering with the code.
+>Adding any **language** without interfering with the code.
 
 The sample application contains five languages:  
 `German`, `English`, `French`, `Italian`, `Polish`.    
